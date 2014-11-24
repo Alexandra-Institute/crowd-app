@@ -77,8 +77,8 @@
 		65B219961A2330A80057AC84 /* CrowdApp */ = {
 			isa = PBXGroup;
 			children = (
+				65B219B91A2331110057AC84 /* View Controllers */,
 				65B219991A2330A80057AC84 /* AppDelegate.swift */,
-				65B2199B1A2330A80057AC84 /* ViewController.swift */,
 				65B2199D1A2330A80057AC84 /* Main.storyboard */,
 				65B219A01A2330A80057AC84 /* Images.xcassets */,
 				65B219A21A2330A80057AC84 /* LaunchScreen.xib */,
@@ -110,6 +110,14 @@
 				65B219AE1A2330A80057AC84 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		65B219B91A2331110057AC84 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				65B2199B1A2330A80057AC84 /* ViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CrowdApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -345,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CrowdApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
