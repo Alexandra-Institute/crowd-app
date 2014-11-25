@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6592A8411A248BDF0094E07F /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6592A8401A248BDF0094E07F /* RunViewController.swift */; };
+		6592A8431A248DF90094E07F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592A8421A248DF90094E07F /* CoreMotion.framework */; };
 		65B2199A1A2330A80057AC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B219991A2330A80057AC84 /* AppDelegate.swift */; };
 		65B2199C1A2330A80057AC84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2199B1A2330A80057AC84 /* ViewController.swift */; };
 		65B2199F1A2330A80057AC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B2199D1A2330A80057AC84 /* Main.storyboard */; };
@@ -26,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6592A8401A248BDF0094E07F /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
+		6592A8421A248DF90094E07F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6592A8441A24B28D0094E07F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6592A8461A24B38B0094E07F /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		65B219941A2330A80057AC84 /* CrowdApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrowdApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B219981A2330A80057AC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B219991A2330A80057AC84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6592A8431A248DF90094E07F /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,9 @@
 		65B2198B1A2330A80057AC84 = {
 			isa = PBXGroup;
 			children = (
+				6592A8461A24B38B0094E07F /* GLKit.framework */,
+				6592A8441A24B28D0094E07F /* CoreGraphics.framework */,
+				6592A8421A248DF90094E07F /* CoreMotion.framework */,
 				65B219961A2330A80057AC84 /* CrowdApp */,
 				65B219AC1A2330A80057AC84 /* CrowdAppTests */,
 				65B219951A2330A80057AC84 /* Products */,
@@ -116,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				65B2199B1A2330A80057AC84 /* ViewController.swift */,
+				6592A8401A248BDF0094E07F /* RunViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B2199C1A2330A80057AC84 /* ViewController.swift in Sources */,
+				6592A8411A248BDF0094E07F /* RunViewController.swift in Sources */,
 				65B2199A1A2330A80057AC84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +424,7 @@
 				65B219B51A2330A80057AC84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65B219B61A2330A80057AC84 /* Build configuration list for PBXNativeTarget "CrowdAppTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +433,7 @@
 				65B219B81A2330A80057AC84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
