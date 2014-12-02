@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import AVFoundation
 
 class RunViewController: UIViewController {
 
@@ -28,6 +29,7 @@ class RunViewController: UIViewController {
     var colorMovement: UIColor! = UIColor.whiteColor()
 
     var threshold: Double!
+    var flashEnabled: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +106,40 @@ class RunViewController: UIViewController {
             self.view.backgroundColor = self.colorMovement
             UIView.animateKeyframesWithDuration(0.3, delay: 0.0, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
                 self.view.backgroundColor = UIColor.blackColor()
+                self.turnFlashOn()
+                var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector:Selector("turnFlashOff"), userInfo:nil, repeats:false)
+
             }, completion: nil)
+        }
+    }
+
+    func turnFlashOn() {
+        self.toggleTorc(true)
+    }
+    
+    func turnFlashOff() {
+        self.toggleTorc(false)
+    }
+
+    func toggleTorc(toggle: Bool!) {
+        if (!self.flashEnabled.boolValue) {
+            return
+        }
+        var captureDeviceClass: AnyClass! = NSClassFromString("AVCaptureDevice");
+        if (captureDeviceClass != nil) {
+            var device: AVCaptureDevice! = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo);
+            if (device.hasTorch && device.hasFlash){
+                
+                device.lockForConfiguration(nil);
+                if (toggle.boolValue) {
+                    device.torchMode = AVCaptureTorchMode.On
+                    device.flashMode = AVCaptureFlashMode.On
+                } else {
+                    device.torchMode = AVCaptureTorchMode.Off
+                    device.flashMode = AVCaptureFlashMode.Off
+                }
+                device.unlockForConfiguration()
+            }
         }
     }
 

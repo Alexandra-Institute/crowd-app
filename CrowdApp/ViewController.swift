@@ -72,6 +72,7 @@ class ViewController: UITableViewController, UITableViewDelegate {
         if (segue.identifier! == "menuToRunSegue") {
             (segue.destinationViewController as RunViewController).mode = self.selectedMode
             (segue.destinationViewController as RunViewController).threshold = Double(self.thresholdSlider.value)
+            (segue.destinationViewController as RunViewController).flashEnabled = self.selectedFlash
         }
     }
 }
