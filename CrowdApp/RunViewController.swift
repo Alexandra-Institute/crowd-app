@@ -11,6 +11,8 @@ import CoreMotion
 
 class RunViewController: UIViewController {
 
+    @IBOutlet weak var doubleTapToReturnLabel: UILabel!
+    
     var motionManager: CMMotionManager!
     
     var mode: Int! = 0
@@ -32,19 +34,20 @@ class RunViewController: UIViewController {
         self.initializeMotionManager()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateKeyframesWithDuration(1.0, delay: 5.0, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
+            self.doubleTapToReturnLabel.alpha = 0.0
+            }, { (Bool cancelled) -> Void in
+                self.doubleTapToReturnLabel.hidden = true
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func initializeMotionManager() {
         self.motionManager = CMMotionManager()
-        if (self.motionManager.deviceMotionAvailable) {
-            self.motionManager.deviceMotionUpdateInterval = 0.02
-            self.motionManager.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrameXArbitraryZVertical, toQueue: NSOperationQueue.mainQueue(), withHandler: { (deviceMotion: CMDeviceMotion!, error: NSError!) -> Void in
-                self.updateVisualization(deviceMotion)
-            })
-        }
-
         if (self.motionManager.accelerometerAvailable) {
             self.motionManager.accelerometerUpdateInterval = 0.02
             self.motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: { (accelerometerData: CMAccelerometerData!, error: NSError!) -> Void in
@@ -53,16 +56,6 @@ class RunViewController: UIViewController {
         }
     }
     
-    func updateVisualization(deviceMotion: CMDeviceMotion!) {
-        switch (self.mode) {
-        case 0:
-            //updateVisualizationMode1(deviceMotion)
-            break
-        default:
-            break
-        }
-    }
-
     func updateVisualization(accelerometerData: CMAccelerometerData!) {
         switch (self.mode) {
         case 0:
@@ -76,25 +69,6 @@ class RunViewController: UIViewController {
         }
     }
 
-    func updateVisualizationMode1(deviceMotion: CMDeviceMotion!) {
-        /*var color: UIColor
-        
-        var buffer = M_PI / 16
-        
-        if (angle >= M_PI * 2 - M_PI_4 + buffer || angle < M_PI_2 - M_PI_4 - buffer) {
-            self.view.backgroundColor = self.colorUp
-        }
-        if (angle >= M_PI_2 - M_PI_4 + buffer && angle < M_PI - M_PI_4 - buffer) {
-            self.view.backgroundColor = self.colorLeft
-        }
-        if (angle >= M_PI - M_PI_4 + buffer && angle < M_PI + M_PI_2 - M_PI_4 - buffer) {
-            self.view.backgroundColor = self.colorDown
-        }
-        if (angle >= M_PI + M_PI_2 - M_PI_4 + buffer && angle < M_PI * 2 - M_PI_4 - buffer) {
-            self.view.backgroundColor = self.colorRight
-        }*/
-    }
-    
     func updateVisualizationMode1(accelerometerData: CMAccelerometerData!) {
         if (abs(accelerometerData.acceleration.z) > 0.95) {
             return
@@ -132,35 +106,6 @@ class RunViewController: UIViewController {
                 self.view.backgroundColor = UIColor.blackColor()
             }, completion: nil)
         }
-    }
-
-    func yawFromDeviceMotion(deviceMotion: CMDeviceMotion!) -> Double {
-        var quaternion: CMQuaternion! = self.motionManager.deviceMotion.attitude.quaternion
-        
-        var yaw: Double = asin(2 * (quaternion.x * quaternion.z - quaternion.w * quaternion.y))
-
-        if (angle < 0.0) {
-            yaw += M_PI
-        }
-        
-        if (self.motionLastYaw == 0) {
-            self.motionLastYaw = yaw
-        }
-        
-        // kalman filtering
-        var q: Double = 0.1   // process noise
-        var r: Double = 0.1   // sensor noise
-        var p: Double = 0.1   // estimated error
-        var k: Double = 0.5   // kalman filter gain
-        
-        var x: Double = self.motionLastYaw
-        p = p + q
-        k = p / (p + r)
-        x = x + k * (yaw - x)
-        p = (1 - k) * p
-        self.motionLastYaw = x
-        
-        return x
     }
 
     @IBAction func doubleTapped(sender: UITapGestureRecognizer) {

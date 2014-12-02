@@ -243,15 +243,38 @@
                     <view key="view" contentMode="scaleToFill" id="U7g-RA-MDr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkj-0m-xvP">
+                                <rect key="frame" x="16" y="271" width="568" height="58"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="ClL-b5-3MN"/>
+                                </constraints>
+                                <string key="text">Dobbelt-klik for at vende tilbage
+til menuen</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="vkj-0m-xvP" firstAttribute="leading" secondItem="U7g-RA-MDr" secondAttribute="leadingMargin" id="1bv-Er-kWH"/>
+                            <constraint firstItem="vkj-0m-xvP" firstAttribute="trailing" secondItem="U7g-RA-MDr" secondAttribute="trailingMargin" id="JIo-pX-pJm"/>
+                            <constraint firstAttribute="centerY" secondItem="vkj-0m-xvP" secondAttribute="centerY" id="YXi-CY-l5I"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="THu-Ya-sEt" appends="YES" id="vE7-Cx-BiY"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="doubleTapToReturnLabel" destination="vkj-0m-xvP" id="dZf-OW-q8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3y-29-b8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="THu-Ya-sEt">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="THu-Ya-sEt" userLabel="View Tap Gesture Recognizer">
                     <connections>
                         <action selector="doubleTapped:" destination="f2Z-DT-0iF" id="USu-Dg-kZl"/>
                     </connections>
