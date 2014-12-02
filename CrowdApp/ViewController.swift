@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UITableViewController, UITableViewDelegate {
     
     @IBOutlet weak var modeDescriptionTextView: UITextView!
+    @IBOutlet weak var thresholdSlider: UISlider!
     
     var selectedMode: Int = 0
     var selectedFlash: Bool = false
@@ -70,6 +71,7 @@ class ViewController: UITableViewController, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier! == "menuToRunSegue") {
             (segue.destinationViewController as RunViewController).mode = self.selectedMode
+            (segue.destinationViewController as RunViewController).threshold = Double(self.thresholdSlider.value)
         }
     }
 }

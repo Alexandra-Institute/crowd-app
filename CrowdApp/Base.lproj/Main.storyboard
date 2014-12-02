@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="er9-A1-CN6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vL0-BK-4cf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="zBm-fZ-E09">
+            <objects>
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" navigationBarHidden="YES" id="vL0-BK-4cf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S0g-qK-Amp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="er9-A1-CN6" kind="relationship" relationship="rootViewController" id="NNp-ZX-lNX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNY-ll-7Gs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="410"/>
+        </scene>
         <!--CrowdApp-->
         <scene sceneID="eYY-0j-8Rs">
             <objects>
@@ -133,7 +149,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IU9-HS-c22" id="S9F-8n-96K">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qnw-J2-pGp">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qnw-J2-pGp" userLabel="Threshold Slider">
                                                     <rect key="frame" x="6" y="13" width="588" height="31"/>
                                                 </slider>
                                             </subviews>
@@ -205,8 +221,10 @@
                             <outlet property="delegate" destination="er9-A1-CN6" id="YMP-0f-TKy"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="RUh-zg-S4C"/>
                     <connections>
                         <outlet property="modeDescriptionTextView" destination="9ad-Is-tQV" id="nJI-b7-VB7"/>
+                        <outlet property="thresholdSlider" destination="Qnw-J2-pGp" id="WdX-2t-VGU"/>
                         <segue destination="f2Z-DT-0iF" kind="show" identifier="menuToRunSegue" id="qRL-bL-BFA"/>
                     </connections>
                 </tableViewController>
@@ -225,10 +243,19 @@
                     <view key="view" contentMode="scaleToFill" id="U7g-RA-MDr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="THu-Ya-sEt" appends="YES" id="vE7-Cx-BiY"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3y-29-b8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="THu-Ya-sEt">
+                    <connections>
+                        <action selector="doubleTapped:" destination="f2Z-DT-0iF" id="USu-Dg-kZl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1655" y="410"/>
         </scene>
