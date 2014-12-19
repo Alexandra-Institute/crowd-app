@@ -23,9 +23,10 @@ class RunViewController: UIViewController {
     var angle: Double = 0.0
 
     var colorLeft: UIColor! = UIColor.redColor()
-    var colorRight: UIColor! = UIColor.redColor()
+    var colorRight: UIColor! = UIColor.blueColor()
     var colorUp: UIColor! = UIColor.greenColor()
-    var colorDown: UIColor! = UIColor.greenColor()
+    var colorDown: UIColor! = UIColor.yellowColor()
+
     var colorMovement: UIColor! = UIColor.whiteColor()
 
     var threshold: Double!
@@ -37,11 +38,17 @@ class RunViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        UIView.animateKeyframesWithDuration(1.0, delay: 5.0, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
+        UIView.animateKeyframesWithDuration(1.0, delay: 2.0, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
             self.doubleTapToReturnLabel.alpha = 0.0
             }, { (Bool cancelled) -> Void in
                 self.doubleTapToReturnLabel.hidden = true
         })
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if (self.motionManager != nil) {
+            self.motionManager.stopAccelerometerUpdates()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +79,11 @@ class RunViewController: UIViewController {
     }
 
     func updateVisualizationMode1(accelerometerData: CMAccelerometerData!) {
-        if (abs(accelerometerData.acceleration.z) > 0.95) {
+        if (abs(accelerometerData.acceleration.z) > 0.4 && abs(accelerometerData.acceleration.z) <= 0.9) {
+            return;
+        }
+        if (abs(accelerometerData.acceleration.z) > 0.9) {
+            self.view.backgroundColor = UIColor.blackColor()
             return
         }
         self.angle = atan2(accelerometerData.acceleration.x, accelerometerData.acceleration.y)
@@ -103,12 +114,12 @@ class RunViewController: UIViewController {
         force = abs(1.0 - force)
 
         if (force > ((self.threshold * 50.0) + 3.0)) {
-            self.view.backgroundColor = self.colorMovement
-            UIView.animateKeyframesWithDuration(0.3, delay: 0.0, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
-                self.view.backgroundColor = UIColor.blackColor()
-                self.turnFlashOn()
-                var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector:Selector("turnFlashOff"), userInfo:nil, repeats:false)
+            self.turnFlashOn()
+            var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector:Selector("turnFlashOff"), userInfo:nil, repeats:false)
 
+            self.view.backgroundColor = self.colorMovement
+            UIView.animateKeyframesWithDuration(0.3, delay:0.0, options:UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
+                self.view.backgroundColor = UIColor.blackColor()
             }, completion: nil)
         }
     }
