@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6516A4B41A2DF57300705BCF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6516A4B31A2DF57300705BCF /* AVFoundation.framework */; };
+		6537CA491A441BAF00DBD0FE /* AudioMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6537CA481A441BAF00DBD0FE /* AudioMeter.m */; };
 		6592A8411A248BDF0094E07F /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6592A8401A248BDF0094E07F /* RunViewController.swift */; };
 		6592A8431A248DF90094E07F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592A8421A248DF90094E07F /* CoreMotion.framework */; };
 		65B2199A1A2330A80057AC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B219991A2330A80057AC84 /* AppDelegate.swift */; };
@@ -16,6 +17,7 @@
 		65B219A11A2330A80057AC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B219A01A2330A80057AC84 /* Images.xcassets */; };
 		65B219A41A2330A80057AC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B219A21A2330A80057AC84 /* LaunchScreen.xib */; };
 		65B219B01A2330A80057AC84 /* CrowdAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B219AF1A2330A80057AC84 /* CrowdAppTests.swift */; };
+		6CB271DA3E011FFD191ADB1A /* libPods-CrowdApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A13C3360C757D3EB64D2A5D /* libPods-CrowdApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		6516A4B31A2DF57300705BCF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6537CA461A441BAE00DBD0FE /* CrowdApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrowdApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		6537CA471A441BAF00DBD0FE /* AudioMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioMeter.h; sourceTree = "<group>"; };
+		6537CA481A441BAF00DBD0FE /* AudioMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMeter.m; sourceTree = "<group>"; };
 		6592A8401A248BDF0094E07F /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
 		6592A8421A248DF90094E07F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6592A8441A24B28D0094E07F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,6 +49,9 @@
 		65B219A91A2330A80057AC84 /* CrowdAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowdAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B219AE1A2330A80057AC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B219AF1A2330A80057AC84 /* CrowdAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowdAppTests.swift; sourceTree = "<group>"; };
+		7A13C3360C757D3EB64D2A5D /* libPods-CrowdApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrowdApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE799A1ED30EE03926F60C5 /* Pods-CrowdApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdApp/Pods-CrowdApp.release.xcconfig"; sourceTree = "<group>"; };
+		A4E2EA24CB7EDDEDF1DA89E2 /* Pods-CrowdApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdApp/Pods-CrowdApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,7 @@
 			files = (
 				6516A4B41A2DF57300705BCF /* AVFoundation.framework in Frameworks */,
 				6592A8431A248DF90094E07F /* CoreMotion.framework in Frameworks */,
+				6CB271DA3E011FFD191ADB1A /* libPods-CrowdApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32610BF8684F83F48FFB7316 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4E2EA24CB7EDDEDF1DA89E2 /* Pods-CrowdApp.debug.xcconfig */,
+				9BE799A1ED30EE03926F60C5 /* Pods-CrowdApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6537CA451A441B8F00DBD0FE /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				6537CA471A441BAF00DBD0FE /* AudioMeter.h */,
+				6537CA481A441BAF00DBD0FE /* AudioMeter.m */,
+				6537CA461A441BAE00DBD0FE /* CrowdApp-Bridging-Header.h */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		65B2198B1A2330A80057AC84 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +104,8 @@
 				65B219961A2330A80057AC84 /* CrowdApp */,
 				65B219AC1A2330A80057AC84 /* CrowdAppTests */,
 				65B219951A2330A80057AC84 /* Products */,
+				32610BF8684F83F48FFB7316 /* Pods */,
+				FAA9A1B419A899524E0BAC3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				65B219B91A2331110057AC84 /* View Controllers */,
+				6537CA451A441B8F00DBD0FE /* Audio */,
 				65B219991A2330A80057AC84 /* AppDelegate.swift */,
 				65B2199D1A2330A80057AC84 /* Main.storyboard */,
 				65B219A01A2330A80057AC84 /* Images.xcassets */,
@@ -135,6 +166,14 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		FAA9A1B419A899524E0BAC3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A13C3360C757D3EB64D2A5D /* libPods-CrowdApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B219B31A2330A80057AC84 /* Build configuration list for PBXNativeTarget "CrowdApp" */;
 			buildPhases = (
+				6B53F19BF7CDE657FF51A9AA /* Check Pods Manifest.lock */,
 				65B219901A2330A80057AC84 /* Sources */,
 				65B219911A2330A80057AC84 /* Frameworks */,
 				65B219921A2330A80057AC84 /* Resources */,
+				029089A09F10A4BBD219114C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +270,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		029089A09F10A4BBD219114C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdApp/Pods-CrowdApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B53F19BF7CDE657FF51A9AA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65B219901A2330A80057AC84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -236,6 +310,7 @@
 			files = (
 				65B2199C1A2330A80057AC84 /* ViewController.swift in Sources */,
 				6592A8411A248BDF0094E07F /* RunViewController.swift in Sources */,
+				6537CA491A441BAF00DBD0FE /* AudioMeter.m in Sources */,
 				65B2199A1A2330A80057AC84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,23 +432,30 @@
 		};
 		65B219B41A2330A80057AC84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4E2EA24CB7EDDEDF1DA89E2 /* Pods-CrowdApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CrowdApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrowdApp/CrowdApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		65B219B51A2330A80057AC84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE799A1ED30EE03926F60C5 /* Pods-CrowdApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CrowdApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrowdApp/CrowdApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
